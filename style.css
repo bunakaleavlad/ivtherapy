@@ -1,553 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
-@import url('https://unpkg.com/css.gg@2.0.0/icons/css/check.css');
+@import url("https://unpkg.com/css.gg@2.0.0/icons/css/check.css");
 
 * {
-    padding: 0;
-    margin: 0;
-    font-family:'Roboto', 'Aerial', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", "Arial", sans-serif;
+  box-sizing: border-box;
 }
-/* Хиро страница бекграунд*/
-main{
-    height: 95vh; 
-    background: url(img/iv_pole.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: -9vh;
-    background-attachment: fixed;
-}
-/* Хедер */
-header{
-    height: 9vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    backdrop-filter: blur(14px);
-    background-color: #37528325;
-    }
-    .gg-menu-grid-r{
-        display: none !important;
-        margin-right:1em;
-    }
-    header ul{
-        list-style: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        column-gap: 4em;
-        margin-left: 1em;
-    }
-    header ul li a{
-        text-decoration: none;
-        color:#5b5b7f;
-        font-weight: 600;
-        transition: 0.2s;
-    }
-    header ul li a:hover{
-        color: #5b84d0;
-    }
-    .sub-menu{
-        display: none;
-        position: absolute;
-        background-color: whitesmoke;
-        padding: 1em 3em;
-        top: 9vh;
-        border-radius: 0 0 10px 10px;
-    }
-    .sub-menu li{
-        margin-bottom: 1rem;
-        cursor: pointer;
-    }
-    .sub-button1{
-        padding: 1.5em 0;
-    }
-    .sub-button1::after{
-        content: "▾";
-        font-weight: 300;
-    }
-    .sub-button:hover .sub-button1::after{
-        content: "▴";
-    }
-    .sub-button:hover .sub-menu{
-        display:block;
-    }
-    .sub-button1 span{
-        display: none;
-    }
-    .lang-switch a{
-        text-decoration: none;
-        color:#172339;
-    }
-    .nav-number{
-        margin-right:2em;
-    }
-    .logo{
-        font-style: none;
-        text-decoration: none;
-        font-weight: 100;
-        font-size: 1.5rem;
-        color: #375283;
-        margin-left: 1em;
-        text-shadow: 0px 0px 1px #000;
-    }
 
-    #check{
-        display: none;
-    }
-    @media (max-width: 950px){
-        .gg-menu-grid-r{
-            display: block !important;
-            scale:150%;
-            margin-left: 2em;
-            cursor: pointer;
-         }
-         header .nav{
-            display: none;
-         }
-         #check:checked ~ .nav{
-            margin:0;
-            display: flex;
-            flex-direction: column;
-            row-gap: 1em;
-            width:100%;
-            position:absolute;
-            transform: translate3d(0,0,0);
-            top:9vh;
-            height: 70vh;
-            background-color: #375283;
-            }
-            #check:checked ~ ul li a{
-                color: whitesmoke;
-            }
-            .sub-menu{
-                position: relative;
-                top: 1em;
-                padding: 0;
-                background-color:#375283;
-            }
-            .sub-button .sub-menu{
-                display:block;}
-        }
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 
-/* Текст с мейна */
-.main-text{
-    padding: 3em;
+/* Header */
+header {
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+  background-color: rgba(55,82,131,0.14);
+  padding: 0 1rem;
 }
-    .main-text h1{
-        margin-left:50%;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        font-size: 3.5rem;
-        color: #375283;
-    }
-    .main-text p{
-        margin-left: 50%;
-        margin-bottom: 1.5em;
-        font-size: 1.1rem;
-        color: #5b5b7f;
-        font-weight: 500;
-    }
-    .main-text li{
-        margin-left: 52%;
-        column-gap: 20px;
-        margin-bottom: 0.7em;
-    }
-    .contact{
-        font-size: 1.3rem;
-        margin-left: 50%;
-        margin-top: 1em;
-        padding: 0.7em 1em;
-        border: none;
-        border-radius: 5px;
-        background-color: palevioletred;
-        color: white;
-        cursor: pointer;
-        transition: 0.15s ease-out;
-    }
-    .contact:hover{
-        box-shadow: 0px 0px 6px 1px #5b84d0;
-        color: #5b84d0;
-        background-color: whitesmoke;
-    }
-    #user_phone{
-        border: 1px solid #00000050;
-        margin-left:50%;
-        padding: 1em;
-        border-radius: 3px;
+.gg-menu-grid-r{display:none}
+header .nav{list-style:none;display:flex;align-items:center;column-gap:2.5rem}
+header .nav a{text-decoration:none;color:#5b5b7f;font-weight:500}
+header .nav a:hover{color:#5b84d0}
+.sub-menu{display:none;position:absolute;background-color:#fff;padding:0.75rem 1.5rem;top:9vh;border-radius:0 0 10px 10px}
+.sub-button:hover .sub-menu{display:block}
+.lang-switch a{color:#172339;text-decoration:none}
+.logo img{height:48px}
 
-    }
-    #success{
-        margin-left:50%;
-        display:none; 
-        border: 1px solid #000; 
-        background-color: whitesmoke; 
-        border-radius: 3px;
-        padding: 1em;
-    }
-    .main-text h5{
-        font-weight: 500;
-        font-size: 0.9rem;
-        margin-left:50%;
-    }
-    @media (max-width: 950px){
-        .main-text h1, .main-text h4, .main-text li{
-        margin-left:30%;
-        }
-    }
-    @media (max-width: 750px) {
-        .main-text h1, .main-text h4, .main-text li{
-            margin:2% 0;
-        }
-        .main-text h1{
-            margin-top: -1em;
-            font-size: 1.5rem;
-        }
-        .main-text p{
-            margin:20% 2%;
-            font-size: 1rem;
-        }
-        .main-text li{
-            font-size: .8rem;
-        }
-        #user_phone{
-            margin: 2% 0;
-        }
-        .contact{
-            scale: 70%;
-            margin:2% -17%;
-        }
-        .main-text h5{
-            margin-left:0%;
-            margin-top:-0.7em;
-            padding:0;
-        }
-        }
-/* На мейне - Наши приемущества */
-.sector-why-us{
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+@media (max-width:950px){
+  .gg-menu-grid-r{display:block;transform:scale(1.5);margin-left:0.5rem}
+  header .nav{display:none}
+  #check:checked ~ .nav{display:flex;flex-direction:column;position:absolute;top:9vh;left:0;width:100%;background:#375283;color:#fff;padding:1rem}
 }
-    .sector-why-us h2{
-        font-weight: 500;
-        text-align: center;
-        padding: 1em 0em;
-    }
-    .why-us-container{
-        display: flex;
-        justify-content: space-evenly;
-        padding: 1em 0;
-    }
-    .why-us-box{
-        height: 10em;
-        width: 15em;
-        border:1px solid #00000050;
-        border-radius: 7px;
-        background-color: #00000004;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .why-us-box img{
-        width: 3em;
-        padding: 0.3em;
-    }
-    .why-us-box p{
-        padding: 0.3em;
-        text-align: center;
-    }
-    @media (max-width: 750px){
-    .sector-why-us{
-        height: 100vh;
-    }
-    .why-us-container{
-        flex-direction: column;
-        row-gap: 0.3em;
-        align-items: center;
-    }
-    }
-.sector-nurse-main{
-    height: 60vh;
-    display: flex;
-    column-gap: 3em;
-    align-items: center;
-}
-    .nurse-pic-cont{
-        width: 40%;
-    }
-    .nurse-pic-cont img{
-        width: 100%;
-        border-radius: 0px 20px 20px 0px;
-    }
-    .nurse-text-main h2{}
-    .nurse-text-main p, .nurse-text-main ul li{
-        max-width: 70%;
-        line-height: 2em;
-    }
-    .gg-check{
-        display: inline-block;
-        vertical-align:middle;
-    }
-    @media (max-width: 750px){
-        .sector-nurse-main{
-            height: 80vh;
-            flex-direction: column;
-        }
-        .nurse-pic-cont{
-            width: 95%;
-        }
-        .nurse-pic-cont img{
-            margin-left:-1em;
-        }
-        .nurse-text-main h2{
-            text-align: center;
-        }
-        .nurse-text-main p{
-            padding: 1em;
-            line-height: 1em;
-            letter-spacing: 0.1em;
-            font-size: 0.9rem;
-            max-width: 100%;
-        }
-        .nurse-text-main ul li{
-            max-width: 100%;
-            padding:0 1em;
-            font-size:0.9rem;
-        }
-    }
-/* На мейне - краткое описание компании */
-.sector-about-short{
-    height: 55vh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: #00000004;
-    }
-    .about-short-img-cont{
-        width: 30%
-    }
-    .about-short-img-cont img{
-        width: 100%;
-        border-radius: 20px 0px 0px 20px;
-    }
-    .about-short-text{
-        width: 70%;
-        max-width: 50%;
-    }
-    .about-short-text p{
-        line-height: 2em;
-    }
-    .about-short-text p span h2{
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-    @media (max-width: 750px){
-        .sector-about-short{
-            flex-direction:column-reverse;
-            height: 110vh;
-            justify-content: center;
-        }
-        .about-short-img-cont{
-            width: 95%;
-            align-self: end;
-        }
-        .about-short-text{
-            width: 90%;
-            padding: 0 1em;
-            font-size: 0.9rem;
-            max-width: 100%;
-        }
-    }
-/* На мейне - Отзывы */
-.sector-reviews{
-    height: 40vh;
-    background-color: #00000004;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-    .sector-reviews h2{
-        font-weight: 700;
-        text-align: center;
-        padding:1em;
-    }
-    .reviews-container{
-        display: flex;
-        justify-content: space-around;
-    }
-    .review{
-        height: 10em;
-        width: 20em;
-        border:1px solid #00000050;
-        background-color: #fff;
-        border-radius: 5px;
-        position: relative;
-    }
-    .review p{
-        padding: 0.5em;
-        font-size: 0.8rem;
-    }
-    .review-name{
-        position: absolute;
-        top:9.25em;
-        font-size: 0.9rem;
 
-    }
-    .review img{
-        width: 5em;
-        position: absolute;
-        right: 1em;
-        top:6.5em;
-    }
-    .review-permission{
-        text-align: center;
-        color:#00000099;
-        font-size: 0.7rem;
-    }
-    @media (max-width: 750px){
-        .sector-reviews{
-            height: 120vh;
-        }
-        .reviews-container{
-            flex-direction: column;
-            align-items: center;
-            justify-self: center;
-            row-gap: 0.5em;
-        }
-    }
-/* Как мы работаем */
-.sector-work{
-height: 40vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
+/* Main hero */
+main{min-height:70vh;background-image:url('/img/iv_pole.jpg');background-position:center;background-size:cover;background-repeat:no-repeat}
+.main-text{padding:3rem;max-width:960px;margin:0 auto;background:rgba(255,255,255,0.9);border-radius:10px;margin-top:2rem}
+.main-text h1{color:#375283;font-size:2rem;margin-bottom:0.5rem}
+.main-text p{color:#5b5b7f;margin-bottom:1rem}
+.form-control{display:flex;gap:0.5rem;align-items:center}
+.form-control .form-control{flex:1}
+.contact{padding:0.6rem 1rem;background:palevioletred;color:#fff;border:none;border-radius:6px;cursor:pointer}
+#user_phone{padding:0.8rem;border:1px solid rgba(0,0,0,0.15);border-radius:4px}
+#success{display:none;margin-top:0.5rem;padding:0.6rem;background:#f6f6f6;border-radius:4px;color:#0b0b0b}
+
+/* Sections */
+.sector-why-us{padding:2rem 0}
+.why-us-container{display:flex;justify-content:space-evenly;gap:1rem}
+.why-us-box{flex:1;min-width:180px;border-radius:8px;padding:1rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.03);text-align:center}
+.why-us-box img{width:48px;height:48px;margin-bottom:0.5rem}
+
+/* Footer */
+.footer{background:#fff;padding:1rem;text-align:center;color:#888}
+
+@media(max-width:750px){
+  .why-us-container{flex-direction:column}
+  .main-text{margin:1rem}
 }
-    .sector-work p{
-        text-align: center;
-        padding: 1em 0;
-    }
-    .work-container{
-        display: flex;
-        justify-content: space-around;
-    }
-    .work-box{
-        border: 1px solid #00000025;
-        border-radius: 5px;
-        height: 9em;
-        width: 18em;
-        box-sizing: border-box;
-    }
-    .work-box h4{
-        text-align: center;
-        font-size: 3rem;
-        padding:0.1em;
-        color:#375283;
-    }
-    .work-box p{
-        text-align: center;
-        padding:0.3em;
-        font-size: 0.9rem;
-    }
-    @media (max-width: 750px){
-        .sector-work{
-            height: 90vh;
-        }
-        .work-container{
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            row-gap: 0.5em;
-        }
-    }
-/* Страница - Контакты */
-.sector-massage{
-    height: 40vh;
-    background-color: #5b84d040;
-}
-    .sector-massage h3{
-        display:block;
-        padding: 2em;
-        text-align: center;
-    }
-    .massage-container{
-        display: flex;
-        justify-content: space-around;
-    }
-        .contact-us{
-            font-size: 1.1rem;
-        }
-    .teleg-button{
-        color: white;
-        background-color: palevioletred;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 1px 1px 1px #000;
-        padding: 0.6em;
-        cursor: pointer;
-    }
-.footer{
-    display: flex;
-    height: 5vh;
-    background-color:whitesmoke;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: column;
-}
-.error{
-    height: 100vh;
-}
-.sector-about{
-    height: 100vh;
-    display: flex;
-    justify-content: flex-end;
-    background-color: whitesmoke;
-  }
-    .text-about{
-        display: flex;
-        justify-self: center;
-        align-self: center;
-        padding: 3em;
-        max-width: 42em;
-        width: 55%;
-        letter-spacing: 0.1em;
-        line-height: 2em;
-    }
-    .img-container{
-        align-self: center;
-        width: 45%;
-        height: 80%;
-    }
-    .inj-img{
-        border-radius: 20px 0px 0px 20px;
-        height: 100%;
-        width: 100%;
-        object-fit:cover;
-    }
-    .inj-img:hover{
-        height: 101%;
-    }
-    @media (max-width: 750px){
-        .sector-about{
-            flex-direction: column;
-            column-gap: 1em;
-        }
-        .text-about{
-            padding: 1em;
-            font-size: .9rem;
-            order: 1;
-            width: 97%;
-            line-height: 1.7em;
-            max-width: auto;
-        }
-        .img-container{
-            width: 100%;
-        }
-        .inj-img{
-            scale: 97%;
-            
-        }
-    }
